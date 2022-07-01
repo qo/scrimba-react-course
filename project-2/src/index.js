@@ -5,8 +5,13 @@ import './index.css';
 function Header() {
     return (
         <header>
-            <nav>
-                <img src={require("./react-logo.png")} alt="react-logo" width="100px" />
+            <nav className="nav">
+                <img src={require("./react-logo.png")} alt="react-logo" className="react-logo" />
+                <ul className="nav-items">
+                    <li>Pricing</li>
+                    <li>About</li>
+                    <li>Contact</li>
+                </ul>
             </nav>
         </header>
     );
@@ -14,7 +19,7 @@ function Header() {
 
 function MainContent() {
     return (
-        <div>
+        <div className="main-content">
             <h1>Why I'm excited to be learning React</h1>
             <ol>
                 <li>React is highly maintained library and used by a lot of companies</li>
@@ -27,7 +32,7 @@ function MainContent() {
 
 function Footer() {
     return (
-        <footer>
+        <footer className="footer">
             <small>2022, qo</small>
         </footer>
     );
@@ -35,7 +40,7 @@ function Footer() {
 
 function Page() {
     return (
-        <div>
+        <div className="app">
             <Header />
             <MainContent />
             <Footer />

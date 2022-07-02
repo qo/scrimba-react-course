@@ -1,4 +1,4 @@
-import reactlogoimg from "../react-logo.svg";
+import reactlogoimg from "../images/react-logo.svg";
 import "./Navbar.css";
 
 export default function Navbar() {

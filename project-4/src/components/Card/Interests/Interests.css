@@ -1,0 +1,22 @@
+.interests {
+    display: flex;
+    flex-direction: column;
+    padding-left: 35px;
+    padding-right: 35px;
+}
+
+.title {
+    font-style: normal;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 150%;
+    color: #F5F5F5;
+}
+
+.contents {
+    font-style: normal;
+    font-weight: 400;
+    font-size: 10.24px;
+    line-height: 150%;
+    color: #DCDCDC;
+}

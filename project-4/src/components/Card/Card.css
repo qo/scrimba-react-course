@@ -1,0 +1,15 @@
+.card {
+    width: 550px;
+    height: 868px;
+    background-color: #23252C;
+}
+
+.card-content {
+    width: 317px;
+    height: 780px;
+    background-color: #1A1B21;
+
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+}

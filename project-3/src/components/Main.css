@@ -1,10 +1,13 @@
 .main {
-    background: #282D35;
     width: 550px;
     height: 459px;
 
     display: flex;
     flex-direction: column;
+
+    background: #282D35 url("../images/react-logo-background.svg") no-repeat;
+    background-position-x: right;
+    background-position-y: 80%;
 }
 
 .title {

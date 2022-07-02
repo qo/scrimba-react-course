@@ -1,6 +1,18 @@
 .links {
+
+    /* Aligning each link in a row */
+
     display: flex;
     flex-direction: row;
-    gap: 20px;
-    justify-content: center;
+    align-items: center;
+
+    /* Gap between each link is 24px */
+    gap: 24px;
+}
+
+.icon {
+    /* Each icon is 25*25px */
+
+    width: 25px;
+    height: 25px;
 }

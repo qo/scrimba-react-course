@@ -1,3 +1,4 @@
+import "./Footer.css"
 import Links from "./Links/Links";
 
 export default function Footer() {

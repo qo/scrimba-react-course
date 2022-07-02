@@ -1,9 +1,17 @@
 .interests {
+
+    /* Aligning title and content in a column */
+
     display: flex;
     flex-direction: column;
+
+    /* Some padding for interests div */
+
     padding-left: 35px;
     padding-right: 35px;
 }
+
+/* From Figma */
 
 .title {
     font-style: normal;

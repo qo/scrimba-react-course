@@ -1,4 +1,6 @@
 import photo from "./images/photo.png";
+import email from "./images/mail-icon.svg"
+import linkedin from "./images/linkedin-icon.svg"
 import "./Main.css"
 
 export default function Main() {
@@ -9,8 +11,14 @@ export default function Main() {
             <div className="job">Frontend Developer</div>
             <div className="website">laurasmith.website</div>
             <div className="buttons">
-                <button className="email">Email</button>
-                <button className="linkedin">LinkedIn</button>
+                <div className="email-button">
+                    <img src={email} alt="email"/>
+                    <div className="email-button-text">Email</div>
+                </div>
+                <div className="linkedin-button">
+                    <img src={linkedin} alt="linkedin"/>
+                    <div className="linkedin-button-text">LinkedIn</div>
+                </div>
             </div>
         </div>
     )

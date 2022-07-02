@@ -8,10 +8,10 @@ import "./Links.css"
 export default function Links() {
     return (
         <div className="links">
-            <input type="image" src={facebook} alt="facebook"/>
-            <input type="image" src={github} alt="github"/>
-            <input type="image" src={instagram} alt="instagram"/>
-            <input type="image" src={twitter} alt="twitter"/>
+            <input className="icon" type="image" src={facebook} alt="facebook"/>
+            <input className="icon" type="image" src={github} alt="github"/>
+            <input className="icon" type="image" src={instagram} alt="instagram"/>
+            <input className="icon" type="image" src={twitter} alt="twitter"/>
         </div>
     )
 }

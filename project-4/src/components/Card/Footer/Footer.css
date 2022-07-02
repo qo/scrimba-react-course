@@ -1,0 +1,18 @@
+.footer {
+
+    /* Centering Links inside Footer */
+
+    display: flex;
+    justify-content: center;
+
+    /* Making footer be in the very bottom of the Card */
+    margin-top: auto;
+
+    /* Size and background color */
+
+    height: 64px;
+    background-color: #161619;
+
+    /* Rounding edges at the bottom of the footer */
+    border-radius: 0px 0px 10px 10px;
+}

@@ -1,15 +1,49 @@
 .card {
+
+    /* Centering the card background */
+
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+
+    /* Card background size */
+
     width: 550px;
     height: 868px;
+
+    /* Card background color */
     background-color: #23252C;
 }
 
 .card-content {
+
+    /* Centering the card */
+
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+
+    /* Card sizes */
+
     width: 317px;
     height: 780px;
+
+    /* Card background color */
+
     background-color: #1A1B21;
+
+    /* Aligning card contents in a column */
 
     display: flex;
     flex-direction: column;
+
+    /* Distance between each card inner component (Main, About, Interests, Footer) */
     gap: 40px;
+
+    /* Rounding corners of the card */
+    border-radius: 10px 10px 10px 10px;
 }

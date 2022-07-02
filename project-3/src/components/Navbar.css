@@ -1,0 +1,45 @@
+.navbar {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+
+    width: 550px;
+    height: 91px;
+
+    background: #21222A;
+}
+
+.react-logo {
+    display: flex;
+    flex-direction: row;
+    gap: 12.85px;
+    align-items: center;
+
+    margin-left: 30px;
+}
+
+.react-logo-image {
+    height: 25px;
+}
+
+.react-logo-text {
+    font-style: normal;
+    font-weight: 700;
+    font-size: 22.2535px;
+    line-height: 27px;
+    letter-spacing: -0.05em;
+    color: #61DAFB;
+}
+
+.current-project {
+    font-style: normal;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 19px;
+    text-align: right;
+
+    margin-right: 30px;
+
+    color: #DEEBF8;
+}

@@ -1,7 +1,9 @@
+import "./Main.css"
+
 export default function Main() {
     return (
-        <h1>
+        <div className="main">
             Main goes here
-        </h1>
+        </div>
     );
 }

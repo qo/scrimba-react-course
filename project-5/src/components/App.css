@@ -1,0 +1,18 @@
+.page {
+  font-family: 'Poppins', sans-serif;
+  width: 100%;
+  height: 100vh;
+  background-color: #FF5A5F;
+}
+
+.app {
+
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+
+  width: 550px;
+  height: 853px;
+  background-color: white;
+}

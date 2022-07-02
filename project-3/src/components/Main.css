@@ -2,6 +2,38 @@
     background: #282D35;
     width: 550px;
     height: 459px;
-    left: 0px;
-    top: 91px;
+
+    display: flex;
+    flex-direction: column;
+}
+
+.title {
+    font-style: normal;
+    font-weight: 700;
+    font-size: 39.06px;
+    line-height: 47px;
+    letter-spacing: -0.05em;
+
+    color: #FFFFFF;
+
+    margin-left: 27px;
+    margin-top: 57px;
+}
+
+.facts-list {
+
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    width: 370px;
+
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 19px;
+
+    color: #FFFFFF;
+
+    margin-left: 27px;
+    margin-top: 87px;
 }

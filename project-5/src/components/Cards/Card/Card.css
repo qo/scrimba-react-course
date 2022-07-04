@@ -2,7 +2,6 @@
     display: flex;
     flex-direction: column;
     gap: 8px;
-    padding-left: 36px;
 }
 
 .first-row {
@@ -22,7 +21,7 @@
     height: 14px;
 }
 
-.rating {
+.black {
     font-style: normal;
     font-weight: 300;
     font-size: 12px;
@@ -30,21 +29,12 @@
     color: #222222;
 }
 
-.ratings-count, .dot, .location {
+.grey {
     font-style: normal;
     font-weight: 300;
     font-size: 12px;
     line-height: 110%;
     color: #918E9B;
-}
-
-.title, .person-word {
-    font-style: normal;
-    font-weight: 300;
-    font-size: 12px;
-    line-height: 110%;
-    /* identical to box height, or 13px */
-    color: #222222;
 }
 
 .third-row {
@@ -53,7 +43,7 @@
     gap: 3px;
 }
 
-.price {
+.bold {
     font-style: normal;
     font-weight: 600;
     font-size: 12px;

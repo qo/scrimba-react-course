@@ -30,7 +30,7 @@
     color: #222222;
 }
 
-.amount-of-ratings, .dot, .location {
+.ratings-count, .dot, .location {
     font-style: normal;
     font-weight: 300;
     font-size: 12px;

@@ -4,12 +4,12 @@ import star from "./images/star.svg"
 export default function Card(props) {
     let badgeType = "";
     let badgeText = "";
-    if (!props.data.openSpots) {
+    if (!props.openSpots) {
         badgeType = "sold-out-badge";
         badgeText = "Sold Out";
     }
     else {
-        if (props.data.location === "Sweden") {
+        if (props.location === "Sweden") {
             badgeType = "close-to-you-badge";
             badgeText = "Close to You";
         }
@@ -17,20 +17,20 @@ export default function Card(props) {
     return (
         <div className="card">
             {badgeType && <div className={badgeType}>{badgeText}</div>}
-            <img className="image" src={props.data.image} alt=""/>
+            <img className="image" src={props.image} alt=""/>
             <div className="first-row">
                 <img className="star" src={star} alt=""/>
-                <div className="black">{props.data.rating}</div>
-                <div className="grey">({props.data.ratingsCount}) · {props.data.location}</div>
+                <div className="black">{props.rating}</div>
+                <div className="grey">({props.ratingsCount}) · {props.location}</div>
             </div>
             <div className="second-row">
                 <div className="black">
-                    {props.data.title}
+                    {props.title}
                 </div>
             </div>
             <div className="third-row">
                 <div className="bold">
-                    From ${props.data.price} /
+                    From ${props.price} /
                 </div>
                 <div className="black">
                      person

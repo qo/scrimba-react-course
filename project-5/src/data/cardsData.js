@@ -4,6 +4,7 @@ import image3 from "../images/image3.png";
 
 export default [
     {
+        id: 0,
         image: image1,
         rating: 5.0,
         ratingsCount: 6,
@@ -13,6 +14,7 @@ export default [
         openSpots: 0
     },
     {
+        id: 1,
         image: image2,
         rating: 5.0,
         ratingsCount: 30,
@@ -22,6 +24,7 @@ export default [
         openSpots: 1
     },
     {
+        id: 2,
         image: image3,
         rating: 4.8,
         ratingsCount: 2,

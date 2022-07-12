@@ -1,0 +1,19 @@
+.header {
+    display: flex;
+    flex-direction: row;
+    background: #F55A5A;
+    height: 55px;
+    margin-bottom: 45px;
+    justify-content: center;
+    align-items: center;
+    border-top-right-radius: 10px;
+    border-top-left-radius: 10px;
+}
+
+.header-text {
+    color: white;
+    font-weight: 500;
+    font-size: 14.4608px;
+    letter-spacing: -0.075em;
+    margin-left: 7px;
+}

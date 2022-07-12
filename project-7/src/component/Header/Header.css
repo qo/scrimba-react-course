@@ -1,0 +1,21 @@
+.header {
+    display: flex;
+    height: 65px;
+    background: linear-gradient(90deg, #672280 1.18%, #A626D3 100%);
+    color: white;
+    align-items: center;
+    border-radius: 10px 10px 0 0;
+}
+
+.logo {
+    margin-left: 20px;
+    display: flex;
+    flex-direction: row;
+    gap: 6.69px;
+}
+
+.logo-text {
+    font-weight: 700;
+    font-size: 20.7482px;
+    letter-spacing: -0.1em;
+}

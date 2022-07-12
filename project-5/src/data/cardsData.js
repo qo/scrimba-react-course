@@ -9,21 +9,24 @@ export default [
         ratingsCount: 6,
         location: "USA",
         title: "Life lessons with Katie Zaferes",
-        price: 136.0
+        price: 136.0,
+        openSpots: 0
     },
     {
         image: image2,
         rating: 5.0,
         ratingsCount: 30,
-        location: "USA",
+        location: "Finland",
         title: "Learn wedding photography",
-        price: 125.0
+        price: 125.0,
+        openSpots: 1
     },
     {
         image: image3,
         rating: 4.8,
         ratingsCount: 2,
-        location: "USA",
+        location: "Sweden",
         title: "Group Mountain",
-        price: 50.0
+        price: 50.0,
+        openSpots: 2
     }];

@@ -2,9 +2,21 @@ import "./Card.css"
 import star from "./images/star.svg"
 
 export default function Card(props) {
-    console.log(props);
-    return(
+    let badgeType = "";
+    let badgeText = "";
+    if (!props.data.openSpots) {
+        badgeType = "sold-out-badge";
+        badgeText = "Sold Out";
+    }
+    else {
+        if (props.data.location === "Sweden") {
+            badgeType = "close-to-you-badge";
+            badgeText = "Close to You";
+        }
+    }
+    return (
         <div className="card">
+            {badgeType && <div className={badgeType}>{badgeText}</div>}
             <img className="image" src={props.data.image} alt=""/>
             <div className="first-row">
                 <img className="star" src={star} alt=""/>

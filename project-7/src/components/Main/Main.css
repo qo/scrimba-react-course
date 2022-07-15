@@ -46,3 +46,10 @@
     text-align: center;
     letter-spacing: -0.1em;
 }
+
+.meme {
+    width: 477px;
+    height: 268px;
+    border-radius: 2px;
+    margin: 36px;
+}

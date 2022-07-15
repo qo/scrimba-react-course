@@ -1,0 +1,40 @@
+.App {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.card {
+    width: 200px;
+    border: 1px solid lightgray;
+    border-radius: 10px;
+    height: 350px;
+    box-shadow: 5px 5px 5px 1px rgba(120,120,120,0.44);
+    -webkit-box-shadow: 5px 5px 5px 1px rgba(120,120,120,0.44);
+    -moz-box-shadow: 5px 5px 5px 1px rgba(120,120,120,0.44);
+    padding: 10px;
+}
+
+.person {
+    width: 100%;
+    padding: 10%;
+}
+
+.name {
+    font-weight: 600;
+    font-size: 25px;
+    margin-block: 13px;
+    color: #333333;
+}
+
+.star {
+    width: 25px;
+    cursor: pointer;
+}
+
+.phone, .email {
+    font-size: 0.75rem;
+    color: gray;
+    margin-block: 7px;
+}

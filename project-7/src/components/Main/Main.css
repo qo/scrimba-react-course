@@ -48,8 +48,21 @@
 }
 
 .meme {
+    font-family: "Anton", sans-serif;
+    font-size: 32px;
+}
+
+.meme-image {
     width: 477px;
     height: 268px;
     border-radius: 2px;
     margin: 36px;
+}
+
+.meme-top-text {
+    margin-top: 16px;
+}
+
+.meme-bottom-text {
+    margin-bottom: 16px;
 }

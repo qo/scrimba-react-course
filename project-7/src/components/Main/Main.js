@@ -10,10 +10,17 @@ export default function Main() {
         return randomMeme.url;
     }
 
-    const [currentMemeUrl, setCurrentMemeUrl] = useState(getRandomMemeUrl());
+    const [meme, setMeme] = useState({
+        topText: "",
+        bottomText: "",
+        image: getRandomMemeUrl()
+    });
 
     function handleClick() {
-        setCurrentMemeUrl(getRandomMemeUrl());
+        setMeme(prevMeme => ({
+            ...prevMeme,
+            image: getRandomMemeUrl()
+        }));
     }
 
     return (
@@ -28,8 +35,14 @@ export default function Main() {
                     <span role="img" aria-label="image"> 🖼️</span>
                 </button>
             </div>
-            <div className="meme-container">
-                <img className="meme" src={currentMemeUrl}/>
+            <div className="meme">
+                <img className="meme-image" src={meme.image} alt="" />
+                <div className="meme-top-text">
+                    {meme.topText}
+                </div>
+                <div className="meme-bottom-text">
+                    {meme.bottomText}
+                </div>
             </div>
         </div>
     )

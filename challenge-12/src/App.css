@@ -1,5 +1,18 @@
 .App {
-    margin: 100px;
+    display: flex;
+    flex-direction: column;
+    width: 550px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px 2px lightgray;
+
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.container {
+    margin: 10px 30px 30px 30px;
 }
 
 .boxes {

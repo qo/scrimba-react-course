@@ -1,9 +1,8 @@
 .box {
     display: flex;
     justify-content: center;
-    border: black solid;
+    border: solid;
     background-color: transparent;
-    color: black;
     width: 50px;
     height: 50px;
     font-weight: 700;

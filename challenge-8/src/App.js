@@ -1,5 +1,7 @@
 import React, {useState} from "react"
 import "./style.css"
+import "./Count"
+import Count from "./Count";
 
 export default function App() {
 
@@ -17,12 +19,12 @@ export default function App() {
     setCount(prevCount => prevCount - 1);
   }
 
+  console.log("App component rendered");
+
   return (
       <div className="counter">
         <button className="counter--minus" onClick={subtract}>–</button>
-        <div className="counter--count">
-          <h1>{count}</h1>
-        </div>
+        <Count count={count} />
         <button className="counter--plus" onClick={add}>+</button>
       </div>
   )

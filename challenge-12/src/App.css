@@ -1,0 +1,9 @@
+.App {
+    margin: 100px;
+}
+
+.boxes {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}

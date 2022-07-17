@@ -19,7 +19,7 @@ export default function App() {
 
     function subMessage() {
         if (messages.length > 1)
-            setMessages(messages => messages.slice(messages.length - 1));
+            setMessages(messages => messages.slice(0, messages.length - 1));
         else
             setMessages([]);
     }

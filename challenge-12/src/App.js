@@ -13,7 +13,20 @@ function App(props) {
   const [boxes, setBoxes] = useState(boxesData);
 
   function toggleBox(id) {
-      console.log("Clicked Box " + id);
+      setBoxes(prevBoxes => {
+          const newBoxes = [];
+          for (let i = 0; i < prevBoxes.length; i++) {
+              if (i + 1 !== id)
+                  newBoxes.push(prevBoxes[i]);
+              else {
+                  newBoxes.push({
+                      ...prevBoxes[i],
+                      on: !prevBoxes[i].on
+                  });
+              }
+          }
+          return newBoxes;
+      });
   }
 
   const boxesElements = boxes.map(

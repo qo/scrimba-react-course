@@ -14,18 +14,13 @@ function App(props) {
 
   function toggleBox(id) {
       setBoxes(prevBoxes => {
-          const newBoxes = [];
-          for (let i = 0; i < prevBoxes.length; i++) {
-              if (i + 1 !== id)
-                  newBoxes.push(prevBoxes[i]);
-              else {
-                  newBoxes.push({
-                      ...prevBoxes[i],
-                      on: !prevBoxes[i].on
-                  });
-              }
-          }
-          return newBoxes;
+          return prevBoxes.map((box) => {
+              if (box.id !== id) return box;
+              else return {
+                  ...box,
+                  on: !box.on
+              };
+          });
       });
   }
 

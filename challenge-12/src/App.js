@@ -12,7 +12,14 @@ function App(props) {
 
   const [boxes, setBoxes] = useState(boxesData);
 
-  const boxesElements = boxes.map(box => <Box id={box.id} />);
+  const boxesElements = boxes.map(
+      box =>
+          <Box
+              id={box.id}
+              on={box.on}
+              darkTheme={props.darkTheme}
+          />
+  );
 
   return (
     <div style={theme} className="App">

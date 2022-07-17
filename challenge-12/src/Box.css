@@ -1,10 +1,14 @@
-.box {
-    display: flex;
-    justify-content: center;
-    border: solid;
-    background-color: transparent;
+.Box {
     width: 50px;
     height: 50px;
-    font-weight: 700;
+    border: black;
+    border-radius: 5px;
+    display: flex;
+    justify-content: center;
     cursor: pointer;
+}
+
+.id {
+    font-weight: 700;
+    font-size: 15px;
 }

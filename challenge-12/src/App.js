@@ -5,46 +5,60 @@ import {useState} from "react";
 
 function App(props) {
 
-  const theme = {
-      backgroundColor: props.darkTheme ? "#222222" : "#cccccc",
-      color: props.darkTheme ? "#cccccc" : "#222222",
-  };
+    const themeStyles =
+        props.darkTheme
+            ?
+            {
+                backgroundColor: "#323232",
+                color: "#cdcdcd"
+            }
+            :
+            {
+                backgroundColor: "#cdcdcd",
+                color: "#323232"
+            };
 
-  const [boxes, setBoxes] = useState(boxesData);
+    function toggleBox(id) {
+        setBoxes(prevBoxes => {
+            let nextBoxes = prevBoxes.map(prevBox => {
+                let nextBox =
+                    prevBox.id === id
+                    ?
+                        {
+                            ...prevBox,
+                            on: !prevBox.on
+                        }
+                    :
+                        prevBox;
+                return nextBox;
+            });
+            console.log(nextBoxes);
+            return nextBoxes;
+        });
+    }
 
-  function toggleBox(id) {
-      setBoxes(prevBoxes => {
-          return prevBoxes.map((box) => {
-              if (box.id !== id) return box;
-              else return {
-                  ...box,
-                  on: !box.on
-              };
-          });
-      });
-  }
+    const [boxes, setBoxes] = useState(boxesData);
 
-  const boxesElements = boxes.map(
-      box =>
-          <Box
-              key={box.id}
-              id={box.id}
-              on={box.on}
-              darkTheme={props.darkTheme}
-              toggleBox={toggleBox}
-          />
-  );
+    const boxElements = boxes.map(box =>
+        <Box
+            key={box.id}
+            id={box.id}
+            on={box.on}
+            darkTheme={props.darkTheme}
+            toggleBox={toggleBox}
+        />
+    )
 
-  return (
-    <div style={theme} className="App">
-      <div className="container">
-          <h1>Boxes Challenge</h1>
-          <div className="boxes">
-              {boxesElements}
-          </div>
-      </div>
-    </div>
-  );
+    return (
+        <div className="App" style={themeStyles}>
+            <div className="title">
+                Boxes Challenge
+            </div>
+            <div className="boxes">
+                {boxElements}
+            </div>
+        </div>
+    );
 }
 
 export default App;

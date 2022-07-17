@@ -12,12 +12,18 @@ function App(props) {
 
   const [boxes, setBoxes] = useState(boxesData);
 
+  function toggleBox(id) {
+      console.log("Clicked Box " + id);
+  }
+
   const boxesElements = boxes.map(
       box =>
           <Box
+              key={box.id}
               id={box.id}
               on={box.on}
               darkTheme={props.darkTheme}
+              toggleBox={toggleBox}
           />
   );
 

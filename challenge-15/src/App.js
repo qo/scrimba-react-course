@@ -2,19 +2,20 @@ import './App.css';
 import {useState} from "react";
 
 function App() {
-  const [name, setName] = useState({
+  const [userdata, setUserdata] = useState({
     firstName: "",
-    lastName: ""
+    lastName: "",
+    email: ""
   });
 
   /**
    * Challenge: Track the applicant's last name as well
    */
 
-  function handleNameChange(event) {
-    setName(prevName => {
+  function handleUserdataChange(event) {
+    setUserdata(prevData => {
       return {
-        ...prevName,
+        ...prevData,
         [event.target.name]: event.target.value
       };
     });
@@ -23,21 +24,28 @@ function App() {
   return (
       <div className="App">
         <form>
-          <input
-              type="text"
-              placeholder="First Name"
-              onChange={handleNameChange}
-              name="firstName"
-          />
-          <input
-              type="text"
-              placeholder="Last Name"
-              onChange={handleNameChange}
-              name="lastName"
-          />
+            <input
+                type="text"
+                placeholder="First Name"
+                onChange={handleUserdataChange}
+                name="firstName"
+            />
+            <input
+                type="text"
+                placeholder="Last Name"
+                onChange={handleUserdataChange}
+                name="lastName"
+            />
+            <input
+                type="email"
+                placeholder="Email"
+                onChange={handleUserdataChange}
+                name="email"
+            />
         </form>
         <div>
-          Hi, {name.firstName} {name.lastName}
+            Hi, {userdata.firstName} {userdata.lastName}.
+            Your email is {userdata.email}
         </div>
       </div>
   )

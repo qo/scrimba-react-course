@@ -11,20 +11,11 @@ function App() {
    * Challenge: Track the applicant's last name as well
    */
 
-  function handleFirstNameChange(event) {
+  function handleNameChange(event) {
     setName(prevName => {
       return {
-        firstName: event.target.value,
-        lastName: prevName.lastName
-      };
-    });
-  }
-
-  function handleLastNameChange(event) {
-    setName(prevName => {
-      return {
-        firstName: prevName.firstName,
-        lastName: event.target.value
+        ...prevName,
+        [event.target.name]: event.target.value
       };
     });
   }
@@ -35,12 +26,14 @@ function App() {
           <input
               type="text"
               placeholder="First Name"
-              onChange={handleFirstNameChange}
+              onChange={handleNameChange}
+              name="firstName"
           />
           <input
               type="text"
               placeholder="Last Name"
-              onChange={handleLastNameChange}
+              onChange={handleNameChange}
+              name="lastName"
           />
         </form>
         <div>

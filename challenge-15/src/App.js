@@ -7,7 +7,8 @@ function App() {
     lastName: "",
     email: "",
     comments: "",
-    isFriendly: false
+    isFriendly: false,
+    employment: ""
   });
 
   /**
@@ -23,6 +24,12 @@ function App() {
       };
     });
   }
+
+  let fullName = "";
+  if (userdata.firstName && userdata.lastName)
+      fullName = userdata.firstName + " " + userdata.lastName;
+  else
+      fullName = userdata.firstName ? userdata.firstName : userdata.lastName;
 
   return (
       <div className="App">
@@ -66,11 +73,47 @@ function App() {
                 name="isFriendly"
             />
             <label htmlFor="isFriendly">Are you friendly?</label>
+            <fieldset>
+                <legend>Current employment status</legend>
+                <input
+                    type="radio"
+                    id="unemployed"
+                    name="employment"
+                    value="unemployed"
+                    onChange={handleUserdataChange}
+                    checked={userdata.employment === "unemployed"}
+                />
+                <label htmlFor="unemployed">Unemployed</label>
+                <br />
+                <input
+                    type="radio"
+                    id="part-time"
+                    name="employment"
+                    value="part-time"
+                    onChange={handleUserdataChange}
+                    checked={userdata.employment === "part-time"}
+                />
+                <label htmlFor="part-time">Part-time</label>
+                <br />
+
+                <input
+                    type="radio"
+                    id="full-time"
+                    name="employment"
+                    value="full-time"
+                    onChange={handleUserdataChange}
+                    checked={userdata.employment === "full-time"}
+                />
+                <label htmlFor="full-time">Full-time</label>
+                <br />
+            </fieldset>
         </form>
         <div>
-            Hi, {userdata.firstName} {userdata.lastName}.
-            Your email is {userdata.email}.
-            Comments on registration: {userdata.comments}
+            { fullName && <p>Hi, {fullName}.</p>}
+            { userdata.email && <p>Your email is {userdata.email}.</p> }
+            { userdata.comments && <p>Your comments on registration: {userdata.comments}</p> }
+            { userdata.isFriendly && <p>You are friendly</p> }
+            { userdata.employment && <p>You currently have {userdata.employment} employment status.</p> }
         </div>
       </div>
   )

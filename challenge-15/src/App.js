@@ -5,7 +5,8 @@ function App() {
   const [userdata, setUserdata] = useState({
     firstName: "",
     lastName: "",
-    email: ""
+    email: "",
+    comments: ""
   });
 
   /**
@@ -23,7 +24,7 @@ function App() {
 
   return (
       <div className="App">
-        <form>
+        <form className="form">
             <input
                 type="text"
                 placeholder="First Name"
@@ -45,10 +46,17 @@ function App() {
                 name="email"
                 value={userdata.email}
             />
+            <textarea
+                placeholder="Comments"
+                onChange={handleUserdataChange}
+                name="comments"
+                value={userdata.comments}
+            />
         </form>
         <div>
             Hi, {userdata.firstName} {userdata.lastName}.
-            Your email is {userdata.email}
+            Your email is {userdata.email}.
+            Comments on registration: {userdata.comments}
         </div>
       </div>
   )

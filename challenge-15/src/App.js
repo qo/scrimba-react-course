@@ -32,9 +32,14 @@ function App() {
   else
       fullName = userdata.firstName ? userdata.firstName : userdata.lastName;
 
+  function handleSubmit(event) {
+      event.preventDefault();
+      console.log(userdata);
+  }
+
   return (
       <div className="App">
-        <form>
+        <form onSubmit={handleSubmit}>
             <input
                 className="input-box"
                 type="text"
@@ -126,7 +131,7 @@ function App() {
                 <option value="indigo">Indigo</option>
                 <option value="violet">Violet</option>
             </select>
-
+            <button>Submit</button>
         </form>
         <div>
             { fullName && <p>Hi, {fullName}.</p>}

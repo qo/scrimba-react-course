@@ -29,18 +29,21 @@ function App() {
                 placeholder="First Name"
                 onChange={handleUserdataChange}
                 name="firstName"
+                value={userdata.firstName}
             />
             <input
                 type="text"
                 placeholder="Last Name"
                 onChange={handleUserdataChange}
                 name="lastName"
+                value={userdata.lastName}
             />
             <input
                 type="email"
                 placeholder="Email"
                 onChange={handleUserdataChange}
                 name="email"
+                value={userdata.email}
             />
         </form>
         <div>

@@ -1,13 +1,24 @@
 import "./Main.css"
-import {useState} from "react";
-import memesData from "../../data/memesData"
+import {useEffect, useState} from "react";
 
 export default function Main() {
 
+    const [memes, setMemes] = useState([]);
+
+    useEffect(() => {
+
+        fetch("https://api.imgflip.com/get_memes")
+            .then(res => res.json())
+            .then(data => setMemes(data.data.memes));
+
+    }, []);
+
     function getRandomMemeUrl() {
-        const memesList = memesData.data.memes;
-        const randomMeme = memesList[Math.floor((Math.random()*memesList.length))];
-        return randomMeme.url;
+        if (memes.length) {
+            const randomMeme = memes[Math.floor((Math.random()*memes.length))];
+            return randomMeme.url;
+        }
+        return "https://upload.wikimedia.org/wikipedia/ru/thumb/7/78/Trollface.svg/1200px-Trollface.svg.png";
     }
 
     const [meme, setMeme] = useState({

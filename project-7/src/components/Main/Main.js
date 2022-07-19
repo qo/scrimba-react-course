@@ -16,6 +16,14 @@ export default function Main() {
         image: getRandomMemeUrl()
     });
 
+    function handleChange(event) {
+        const { name, value } = event.target;
+        setMeme(prevMeme => ({
+           ...prevMeme,
+           [name]: value
+        }));
+    }
+
     function handleClick() {
         setMeme(prevMeme => ({
             ...prevMeme,
@@ -27,8 +35,22 @@ export default function Main() {
         <div className="container">
             <div className="form">
                 <div className="inputs">
-                    <input className="input" type="text" placeholder="Upper Text" />
-                    <input className="input" type="text" placeholder="Lower Text" />
+                    <input
+                        className="input"
+                        type="text"
+                        placeholder="Upper Text"
+                        name="topText"
+                        onChange={handleChange}
+                        value={meme.topText}
+                    />
+                    <input
+                        className="input"
+                        type="text"
+                        placeholder="Lower Text"
+                        name="bottomText"
+                        onChange={handleChange}
+                        value={meme.bottomText}
+                    />
                 </div>
                 <button className="button" onClick={handleClick}>
                     <span>Get a new image</span>
@@ -37,10 +59,10 @@ export default function Main() {
             </div>
             <div className="meme">
                 <img className="meme-image" src={meme.image} alt="" />
-                <div className="meme-top-text">
+                <div className="meme-text top">
                     {meme.topText}
                 </div>
-                <div className="meme-bottom-text">
+                <div className="meme-text bottom">
                     {meme.bottomText}
                 </div>
             </div>

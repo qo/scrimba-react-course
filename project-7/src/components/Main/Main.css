@@ -48,21 +48,45 @@
 }
 
 .meme {
-    font-family: "Anton", sans-serif;
-    font-size: 32px;
+    position: relative;
 }
 
 .meme-image {
     width: 477px;
     height: 268px;
-    border-radius: 2px;
+    border-radius: 3px;
     margin: 36px;
 }
 
-.meme-top-text {
-    margin-top: 16px;
+.meme-text {
+    position: absolute;
+    width: 80%;
+    text-align: center;
+    left: 50%;
+    transform: translateX(-50%);
+    margin: 15px 0;
+    padding: 0 5px;
+    font-family: "Anton", sans-serif;
+    font-size: 2em;
+    text-transform: uppercase;
+    color: white;
+    letter-spacing: 1px;
+    text-shadow:
+            2px 2px 0 #000,
+            -2px -2px 0 #000,
+            2px -2px 0 #000,
+            -2px 2px 0 #000,
+            0 2px 0 #000,
+            2px 0 0 #000,
+            0 -2px 0 #000,
+            -2px 0 0 #000,
+            2px 2px 5px #000;
 }
 
-.meme-bottom-text {
-    margin-bottom: 16px;
+.bottom {
+    bottom: 36px;
+}
+
+.top {
+    top: 36px;
 }

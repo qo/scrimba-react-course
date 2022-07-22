@@ -8,19 +8,22 @@ import "./style.css"
 
 export default function App() {
 
-  // "JSON.parse(localStorage.getItem("notes")) || []"
-  // should not have been in the previous commit
-  // and only be added now
+  /**
+   * Challenge:
+   * Lazily initialize our `notes` state so it doesn't
+   * reach into localStorage on every single re-render
+   * of the App component
+   */
+
   const [notes, setNotes] = React.useState(
-      JSON.parse(localStorage.getItem("notes")) || []
+      () => JSON.parse(localStorage.getItem("notes")) || []
   )
 
   const [currentNoteId, setCurrentNoteId] = React.useState(
       (notes[0] && notes[0].id) || ""
   )
 
-  // This should not have been in the previous commit
-  // and only be added now
+
   React.useEffect(() => {
     localStorage.setItem("notes", JSON.stringify(notes))
   }, [notes])

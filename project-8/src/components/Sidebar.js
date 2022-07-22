@@ -1,3 +1,5 @@
+// Source: scrimba
+
 import React from "react"
 import "../style.css"
 
@@ -14,6 +16,12 @@ export default function Sidebar(props) {
                 <h4 className="text-snippet">
                     {note.body.split("\n")[0]}
                 </h4>
+                <button
+                    className="delete-btn"
+                    onClick={(event) => props.deleteNote(event, note.id)}
+                >
+                    <i className="gg-trash trash-icon" />
+                </button>
             </div>
         </div>
     ))

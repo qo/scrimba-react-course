@@ -38,11 +38,28 @@ export default function App() {
   }
 
   function updateNote(text) {
-    setNotes(oldNotes => oldNotes.map(oldNote => {
-      return oldNote.id === currentNoteId
-          ? { ...oldNote, body: text }
-          : oldNote
-    }))
+
+    let updatedNotes = [];
+
+    // First, push current note into the updatedNotes list.
+    // That way, recently-modified notes will always be on
+    // the top of the list.
+
+    notes.map(note => {
+      note.id === currentNoteId &&
+        updatedNotes.push({ ...note, body: text });
+    });
+
+    // After current note is already the first one in the notes list,
+    // push all the remaining ones into the updatesNotes list
+    // in the order they were before
+
+    notes.map(note => {
+      note.id !== currentNoteId &&
+        updatedNotes.push(note);
+    });
+
+    setNotes(updatedNotes);
   }
 
   function findCurrentNote() {

@@ -9,19 +9,39 @@
 
     display: flex;
     flex-direction: column;
+    gap: 10%;
 
     border-radius: 5%;
     background: #F5F5F5;
+
+    align-items: center;
+    justify-content: center;
 }
 
 .dice {
-    /* to be removed */
-    margin: 10px;
-
-    width: 100%;
+    width: 80%;
     height: 25%;
     display: grid;
     grid-template: repeat(2, 40%) / repeat(5, 10%);
-    grid-column-gap: 5%;
+    grid-column-gap: 12.5%;
     grid-row-gap: 20%;
+}
+
+.roll-button {
+
+    color: white;
+
+    width: 20%;
+    height: 10%;
+    background: #5035FF;
+    box-shadow: 0 3px 7px rgba(0, 0, 0, 0.18);
+    border: none;
+    border-radius: 5%;
+
+    font-family: 'Karla', sans-serif;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 75%;
+    align-items: center;
+    text-align: center;
 }

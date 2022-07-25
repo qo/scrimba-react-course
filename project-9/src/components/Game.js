@@ -2,28 +2,20 @@ import "./Game.css"
 import {useState} from "react";
 import Die from "./Die"
 
-/**
- * Challenge: Create a `Roll Dice` button that will re-roll
- * all 10 dice
- *
- * Clicking the button should generate a new array of numbers
- * and set the `dice` state to that new array (thus re-rendering
- * the array to the page)
- */
-
 export default function Game() {
-
-    const numbers = [];
-    for (let i = 0; i < 10; i++)
-        numbers.push(Math.ceil(Math.random() * 6));
 
     const [dice, setDice] = useState(
         () => {
-            return numbers.map(
-                number => {
+            let ids = [];
+            for (let i = 0; i < 10; i++) {
+                ids.push(i);
+            }
+            return ids.map(
+                id => {
                     return {
-                        number: number,
-                        isActive: false,
+                        id: id,
+                        number: Math.ceil(Math.random() * 6),
+                        isHeld: false
                     }
                 }
             )
@@ -33,28 +25,47 @@ export default function Game() {
     let diceElements = dice.map(
         die =>
             <Die
+                id={die.id}
                 number={die.number}
-                isActive={die.isActive}
+                isHeld={die.isHeld}
+                hold={hold}
             />
     );
 
     function roll() {
-
-        for (let i = 0; i < 10; i++)
-            numbers[i] = Math.ceil(Math.random() * 6);
-
         setDice(
-            () => {
-                    return numbers.map(
-                        number => {
-                            return {
-                                number: number,
-                                isActive: false,
-                            }
+            dice => {
+                return dice.map(
+                    die => {
+
+                        console.log(die);
+
+                        return die.isHeld ?
+                            die :
+                            {
+                            ...die,
+                            number: Math.ceil(Math.random() * 6)
                         }
-                    )
-                }
+                    }
+                )
+            }
         );
+    }
+
+    function hold(id) {
+        setDice(
+            dice => {
+                return dice.map(
+                    die => {
+                        return die.id === id ? {
+                            ...die,
+                            isHeld: true
+                        } : die;
+                    }
+                )
+            }
+        );
+
     }
 
     return (

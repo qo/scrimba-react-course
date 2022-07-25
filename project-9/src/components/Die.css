@@ -3,14 +3,13 @@
     height: 100%;
     box-shadow: 0 3px 3px rgba(0, 0, 0, 0.15);
     border-radius: 20%;
-}
-
-.active {
-    background-color: #59E391;
-}
-
-.inactive {
     background-color: white;
+    cursor: pointer;
+}
+
+.held {
+    background-color: #59E391;
+    cursor: default;
 }
 
 .number {

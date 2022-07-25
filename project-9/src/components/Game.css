@@ -45,3 +45,15 @@
     align-items: center;
     text-align: center;
 }
+
+.win-message {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    font-family: 'Karla', sans-serif;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 500%;
+    color: #F5F5F5;
+}

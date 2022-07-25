@@ -1,5 +1,5 @@
 import "./Game.css"
-import {useState} from "react";
+import {useEffect, useState} from "react";
 import Die from "./Die"
 
 export default function Game() {
@@ -22,6 +22,31 @@ export default function Game() {
         }
     );
 
+    const [won, setWon] = useState(false);
+
+    useEffect(() => {
+
+        let firstDieNumber;
+        let won = true;
+
+        dice.map(
+            die => {
+                if (die.isHeld === false)
+                    won = false;
+                if (die.id === 0) {
+                    firstDieNumber = die.number;
+                }
+                else
+                    if (die.number !== firstDieNumber) {
+                        won = false;
+                    }
+            }
+        );
+
+        setWon(won);
+
+    }, [dice])
+
     let diceElements = dice.map(
         die =>
             <Die
@@ -37,9 +62,6 @@ export default function Game() {
             dice => {
                 return dice.map(
                     die => {
-
-                        console.log(die);
-
                         return die.isHeld ?
                             die :
                             {
@@ -53,20 +75,38 @@ export default function Game() {
     }
 
     function hold(id) {
-        setDice(
-            dice => {
-                return dice.map(
-                    die => {
-                        return die.id === id ? {
-                            ...die,
-                            isHeld: true
-                        } : die;
-                    }
-                )
-            }
-        );
 
+        let heldDieNumber = 0;
+
+        dice.map(
+            die => {
+                if (die.isHeld) heldDieNumber = die.number;
+            }
+        )
+
+        // If heldDieNumber is 0, no dies are currently held.
+        if (heldDieNumber === 0 || heldDieNumber === dice[id].number) {
+            setDice(
+                dice => {
+                    return dice.map(
+                        die => {
+                            return die.id === id ? {
+                                ...die,
+                                isHeld: true
+                            } : die;
+                        }
+                    )
+                }
+            );
+        }
     }
+
+    if (won)
+        return (
+            <div className="win-message">
+                Won
+            </div>
+        )
 
     return (
         <div className="Game">

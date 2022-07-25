@@ -6,9 +6,9 @@ export default function Die(props) {
             className={`Die ${props.isHeld ? "held" : ""}`}
             onClick={() => props.hold(props.id)}
         >
-            <div className="number">
+            <p className="number">
                 {props.number}
-            </div>
+            </p>
         </div>
     )
 }

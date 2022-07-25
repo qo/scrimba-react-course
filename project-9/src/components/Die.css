@@ -5,6 +5,9 @@
     border-radius: 20%;
     background-color: white;
     cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .held {
@@ -13,13 +16,9 @@
 }
 
 .number {
-    height: 100%;
     color: #2B283A;
     font-family: 'Karla', sans-serif;
     font-style: normal;
     font-weight: 700;
-    font-size: 75%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    font-size: 2vw;
 }

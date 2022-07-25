@@ -1,6 +1,6 @@
 .Game {
-    width: 300px;
-    height: 300px;
+    width: 30%;
+    height: 50%;
 
     position: absolute;
     left: 50%;
@@ -20,30 +20,31 @@
 
 .dice {
     width: 80%;
-    height: 25%;
+    height: 30%;
     display: grid;
-    grid-template: repeat(2, 40%) / repeat(5, 10%);
-    grid-column-gap: 12.5%;
-    grid-row-gap: 20%;
+    grid-template: repeat(2, 44.45%) / repeat(5, 16.67%);
+    grid-column-gap: 4.167%;
+    grid-row-gap: 11.11%;
 }
 
 .roll-button {
-
-    color: white;
-
-    width: 20%;
-    height: 10%;
+    width: 15%;
+    height: 15%;
     background: #5035FF;
     box-shadow: 0 3px 7px rgba(0, 0, 0, 0.18);
     border: none;
-    border-radius: 5%;
+    border-radius: 20%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 
+.roll-button-text {
     font-family: 'Karla', sans-serif;
     font-style: normal;
     font-weight: 700;
-    font-size: 75%;
-    align-items: center;
-    text-align: center;
+    font-size: 1.5vw;
+    color: white;
 }
 
 .win-message {

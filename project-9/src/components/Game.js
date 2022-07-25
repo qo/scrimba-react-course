@@ -117,7 +117,7 @@ export default function Game() {
                 className="roll-button"
                 onClick={roll}
             >
-                Roll
+                <p className="roll-button-text">Roll</p>
             </button>
         </div>
     )

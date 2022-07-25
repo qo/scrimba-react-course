@@ -110,6 +110,15 @@ export default function Game() {
 
     return (
         <div className="Game">
+            <div className="about">
+                <div className="title">
+                    Tenzies
+                </div>
+                <div className="instructions">
+                    Roll until all dice are the same.
+                    Click each die to freeze it at its current value between rolls.
+                </div>
+            </div>
             <div className="dice">
                 {diceElements}
             </div>

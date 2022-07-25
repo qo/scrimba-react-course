@@ -101,12 +101,24 @@ export default function Game() {
         }
     }
 
-    if (won)
-        return (
-            <div className="win-message">
-                Won
-            </div>
-        )
+    function restart() {
+
+        setDice(
+            dice => {
+                return dice.map(
+                    die => {
+                        return {
+                            ...die,
+                            isHeld: false,
+                            number: Math.ceil(Math.random() * 6)
+                        }
+                    }
+                )
+            }
+        );
+
+        setWon(false);
+    }
 
     return (
         <div className="Game">
@@ -123,10 +135,10 @@ export default function Game() {
                 {diceElements}
             </div>
             <button
-                className="roll-button"
-                onClick={roll}
+                className="button"
+                onClick={won ? restart : roll}
             >
-                <p className="roll-button-text">Roll</p>
+                <p className="button-text">{won ? "Restart" : "Roll"}</p>
             </button>
         </div>
     )

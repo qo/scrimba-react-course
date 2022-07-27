@@ -1,0 +1,41 @@
+.question {
+    font-family: 'Karla', sans-serif;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 19px;
+    color: #293264;
+    margin-bottom: 11.98px;
+
+}
+
+.answers {
+    display: flex;
+    flex-direction: row;
+    gap: 12.71px;
+}
+
+.answer {
+    width: 65.92px;
+    height: 20.65px;
+    border: 0.794239px solid #4D5B9E;
+    border-radius: 7.94239px;
+    background: transparent;
+
+    font-family: 'Inter', sans-serif;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 10.24px;
+    line-height: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+
+    color: #293264;
+}
+
+.chosen {
+    background: #D6DBF5;
+    border: 0;
+}

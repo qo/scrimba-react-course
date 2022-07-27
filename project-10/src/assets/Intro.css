@@ -26,21 +26,3 @@
     color: #293264;
     margin-bottom: 29px;
 }
-
-.start-button {
-    width: 193px;
-    height: 52px;
-    background: #4D5B9E;
-    border-radius: 15px;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-family: 'Inter', sans-serif;
-    font-style: normal;
-    font-weight: 500;
-    font-size: 16px;
-    line-height: 19px;
-    text-align: center;
-    color: #F5F7FB;
-}

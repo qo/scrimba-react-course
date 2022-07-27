@@ -1,0 +1,39 @@
+.button {
+    background: #4D5B9E;
+    color: #F5F7FB;
+    border-radius: 10%/40%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Inter', sans-serif;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+}
+
+.large {
+    width: 193px;
+    height: 52px;
+}
+
+.medium {
+    width: 120px;
+    height: 35px;
+}
+
+.small {
+    width: 65.92px;
+    height: 20.65px;
+}
+
+.answer {
+    background: transparent;
+    color: #293264;
+    border: solid #4D5B9E;
+}
+
+.answer-filled {
+    background: #D6DBF5;
+    color: #293264;
+}

@@ -1,5 +1,6 @@
-import "./Quiz.css"
+import "../assets/Quiz.css"
 import {useState} from "react";
+import Button from "../components/Button";
 
 export default function Quiz() {
 
@@ -48,12 +49,12 @@ export default function Quiz() {
 
             const answerElements = answers.map(
                 answer =>
-                    <div
-                        className={`answer + ${chosenAnswerID === answer.id && "chosen"}`}
-                        onClick={() => setChosenAnswerID(answer.id)}
-                    >
-                        { answer.content }
-                    </div>
+                    <Button
+                        className={`button small ${chosenAnswerID === answer.id ? "answer" : "answer-filled"}`}
+                        onClick={setChosenAnswerID}
+                        onClickValue={answer.id}
+                        text={answer.content}
+                    />
             )
 
             return (
@@ -75,21 +76,21 @@ export default function Quiz() {
             <div className="result">
                 You scored {score}/{tasks.length} correct answers
             </div>
-            <div
-                className="restart-button"
-                onClick={() => setIsFinished(false)}
-            >
-                Play Again
-            </div>
+            <Button
+                className="button medium"
+                onClick={setIsFinished}
+                onClickValue={false}
+                text="Play again"
+            />
         </div>
         :
         <div>
-            <div
-                className="get-results-button"
-                onClick={() => setIsFinished(true)}
-            >
-                Check answers
-            </div>
+            <Button
+                className="button medium"
+                onClick={setIsFinished}
+                onClickValue={true}
+                text="Check answers"
+            />
         </div>
 
     return (

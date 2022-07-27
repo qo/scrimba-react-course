@@ -1,4 +1,5 @@
-import "./Intro.css"
+import "../assets/Intro.css"
+import Button from "../components/Button";
 
 export default function Intro(props) {
     return (
@@ -9,12 +10,12 @@ export default function Intro(props) {
             <div className="description">
                 Some description if needed
             </div>
-            <div
-                className="start-button"
-                onClick={() => props.setMode("quiz")}
-            >
-                Start Quiz
-            </div>
+            <Button
+                className="button large"
+                onClick={props.setMode}
+                onClickValue="quiz"
+                text="Start Quiz"
+            />
         </div>
     )
 }

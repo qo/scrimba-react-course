@@ -1,0 +1,24 @@
+.Radio {
+
+}
+
+.li {
+    width: 65.92px;
+    height: 20.65px;
+}
+
+.input[type="radio"] {
+    display: none;
+}
+
+.input[type="radio"]:checked+label {
+    background: #D6DBF5;
+    color: #293264;
+    border: none;
+}
+
+.label:hover {
+    background: #D6DBF5;
+    color: #293264;
+    border: none;
+}

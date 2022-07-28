@@ -9,28 +9,30 @@
     font-family: 'Inter', sans-serif;
     font-style: normal;
     font-weight: 500;
-    font-size: 16px;
 }
 
 .large {
     width: 193px;
     height: 52px;
+    font-size: 16px;
 }
 
 .medium {
     width: 120px;
     height: 35px;
+    font-size: 10.24px;
 }
 
 .small {
     width: 65.92px;
     height: 20.65px;
+    font-size: 10.24px;
 }
 
 .answer {
     background: transparent;
     color: #293264;
-    border: solid #4D5B9E;
+    border: 0.794239px solid #4D5B9E;
 }
 
 .answer-filled {

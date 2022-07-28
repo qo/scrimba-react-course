@@ -1,6 +1,8 @@
 import "../assets/Quiz.css"
 import {useState} from "react";
 import Button from "../components/Button";
+import Radio from "../components/Radio";
+import {MAX_AMOUNT_OF_ANSWERS} from "../data/constants";
 
 export default function Quiz() {
 
@@ -29,7 +31,39 @@ export default function Quiz() {
 
     const [isFinished, setIsFinished] = useState(false);
     const [score, setScore] = useState(0);
-    const [chosenAnswerID, setChosenAnswerID] = useState(-1);
+    const [chosenAnswersIds, setChosenAnswersIds] = useState([]);
+
+    function isAnswerChosen(answerId) {
+        console.log("state", chosenAnswersIds);
+        const result = chosenAnswersIds.includes(answerId);
+        console.log("result", result);
+        return result;
+    }
+
+    function handleAnswerChange(event) {
+
+        console.log("before", chosenAnswersIds);
+
+        const { value } = event.target;
+        const answerId = parseInt(value);
+        const questionId = Math.floor(answerId/MAX_AMOUNT_OF_ANSWERS);
+
+        setChosenAnswersIds(prevState => {
+
+            let newState = prevState.filter(
+                currentAnswerId => {
+                    const currentQuestionId = Math.floor(currentAnswerId/MAX_AMOUNT_OF_ANSWERS);
+                    return currentQuestionId !== questionId;
+                }
+            );
+
+            newState.push(answerId);
+
+            console.log("after", newState);
+
+            return newState;
+        });
+    }
 
     // Each task contains 1 question, 1 correct answer and 1/3 incorrect answers.
     const quizElements = tasks.map(
@@ -48,13 +82,17 @@ export default function Quiz() {
             )
 
             const answerElements = answers.map(
-                answer =>
-                    <Button
-                        className={`button small ${chosenAnswerID === answer.id ? "answer" : "answer-filled"}`}
-                        onClick={setChosenAnswerID}
-                        onClickValue={answer.id}
-                        text={answer.content}
-                    />
+                answer => {
+                    console.log("answer", answer);
+                    return (
+                        <Radio
+                            radioGroupName={task.index}
+                            answer={answer}
+                            isChosen={isAnswerChosen(answer.id)}
+                            handleAnswerChange={handleAnswerChange}
+                        />
+                    );
+                }
             )
 
             return (
@@ -62,8 +100,11 @@ export default function Quiz() {
                     <div className="question">
                         { task.question }
                     </div>
-                    <div className="answers">
+                    <ul className="answers">
                         { answerElements }
+                    </ul>
+                    <div>
+                        <hr className="hr" />
                     </div>
                 </div>
             )
@@ -72,7 +113,7 @@ export default function Quiz() {
 
     const bottom = isFinished
         ?
-        <div>
+        <div className="bottom">
             <div className="result">
                 You scored {score}/{tasks.length} correct answers
             </div>
@@ -84,7 +125,7 @@ export default function Quiz() {
             />
         </div>
         :
-        <div>
+        <div className="bottom">
             <Button
                 className="button medium"
                 onClick={setIsFinished}
@@ -98,9 +139,7 @@ export default function Quiz() {
             <div className="main">
                 { quizElements }
             </div>
-            <div className="bottom">
-                { bottom }
-            </div>
+            { bottom }
         </div>
     )
 }

@@ -1,3 +1,10 @@
+.Quiz {
+    padding: 75px;
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%, 0%);
+}
+
 .question {
     font-family: 'Karla', sans-serif;
     font-style: normal;
@@ -13,4 +20,32 @@
     display: flex;
     flex-direction: row;
     gap: 12.71px;
+    margin-bottom: 14.99px;
+    list-style-type: none;
+}
+
+.hr {
+    width: 400px;
+    height: 0;
+    border: 0.794239px solid #DBDEF0;
+    margin-bottom: 16px;
+}
+
+.result {
+    font-family: 'Inter', serif;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 12.8px;
+    line-height: 15px;
+    text-align: center;
+    color: #293264;
+}
+
+.bottom {
+    display: flex;
+    flex-direction: row;
+    gap: 18px;
+    justify-content: center;
+    align-items: center;
+    margin-top: 5.07px;
 }

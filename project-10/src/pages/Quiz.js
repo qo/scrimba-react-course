@@ -1,104 +1,106 @@
 import "../assets/Quiz.css"
-import {useState} from "react";
+import {useEffect, useState} from "react";
 import Button from "../components/Button";
-import Radio from "../components/Radio";
-import {MAX_AMOUNT_OF_ANSWERS} from "../data/constants";
+import RadioButton from "../components/RadioButton";
+import getTasks from "../utils/getTasks";
+import getIntersection from "../utils/getIntersection";
+import getQuestionId from "../utils/getQuestionIdByAnswerId";
 
 export default function Quiz() {
 
-    const tasks = [
-        {
-            question: "Question 1",
-            correct_answer: "A",
-            incorrect_answers: ["B", "C", "D"]
-        },
-        {
-            question: "Question 2",
-            correct_answer: "B",
-            incorrect_answers: ["A"]
-        },
-        {
-            question: "Question 3",
-            correct_answer: "C",
-            incorrect_answers: ["A", "B", "D"]
-        },
-        {
-            question: "Question 4",
-            correct_answer: "D",
-            incorrect_answers: ["A", "B", "C"]
-        },
-    ];
-
+    const [tasks, setTasks] = useState([]);
     const [isFinished, setIsFinished] = useState(false);
     const [score, setScore] = useState(0);
     const [chosenAnswersIds, setChosenAnswersIds] = useState([]);
 
-    function isAnswerChosen(answerId) {
-        console.log("state", chosenAnswersIds);
-        const result = chosenAnswersIds.includes(answerId);
-        console.log("result", result);
-        return result;
-    }
+    useEffect(() => {
+        setTasks(getTasks());
+    }, []);
+
+    useEffect(() => {
+
+        // when user clicks "check answers"
+        if (isFinished) {
+            setScore(() => {
+                let correctAnswersIds = [];
+                tasks.map(
+                    task => task.answers.map(
+                        answer => {
+                            answer.isCorrect && correctAnswersIds.push(answer.id)
+                        }
+                    )
+                )
+                return getIntersection(correctAnswersIds, chosenAnswersIds).length;
+            });
+        }
+
+        // when user clicks "play again"
+        else {
+            setTasks(getTasks());
+            setScore(0);
+            setChosenAnswersIds([]);
+        }
+
+    }, [isFinished])
 
     function handleAnswerChange(event) {
 
-        console.log("before", chosenAnswersIds);
-
-        const { value } = event.target;
+        const { name, value } = event.target;
+        const questionId = parseInt(name);
         const answerId = parseInt(value);
-        const questionId = Math.floor(answerId/MAX_AMOUNT_OF_ANSWERS);
 
         setChosenAnswersIds(prevState => {
 
             let newState = prevState.filter(
                 currentAnswerId => {
-                    const currentQuestionId = Math.floor(currentAnswerId/MAX_AMOUNT_OF_ANSWERS);
-                    return currentQuestionId !== questionId;
+                    return getQuestionId(currentAnswerId) !== questionId;
                 }
             );
 
             newState.push(answerId);
 
-            console.log("after", newState);
-
             return newState;
         });
+
     }
 
-    // Each task contains 1 question, 1 correct answer and 1/3 incorrect answers.
     const quizElements = tasks.map(
-        (task, taskIndex) => {
-            const answerContents = task.incorrect_answers;
-            answerContents.push(task.correct_answer);
 
-            const answers = answerContents.map(
-                (answerContent, answerIndex)  => {
-                    return {
-                        // 4 is the maximum amount of answers.
-                        id: taskIndex * 4 + answerIndex,
-                        content: answerContent
-                    }
-                }
-            )
+        task => {
 
-            const answerElements = answers.map(
+            const answerElements = task.answers.map(
+
                 answer => {
-                    console.log("answer", answer);
+
+                    const correctAnswerId = task.answers.find(
+                        answer => answer.isCorrect
+                    ).id;
+
+                    const isCorrect = answer.id === correctAnswerId;
+
+                    const isChosen = chosenAnswersIds.includes(answer.id);
+
+                    let style =
+                        !isFinished ? "default" : (isCorrect ? "green" : (isChosen ? "red" : "transparent"));
+
                     return (
-                        <Radio
-                            radioGroupName={task.index}
-                            answer={answer}
-                            isChosen={isAnswerChosen(answer.id)}
-                            handleAnswerChange={handleAnswerChange}
+                        <RadioButton
+                            text={answer.content}
+                            radioGroupName={task.question.id}
+                            id={answer.id}
+                            checked={isChosen}
+                            handleChange={handleAnswerChange}
+                            style={style}
                         />
                     );
+
                 }
             )
 
             return (
                 <div>
                     <div className="question">
-                        { task.question }
+                        { task.question.content }
                     </div>
                     <ul className="answers">
                         { answerElements }
@@ -109,7 +111,7 @@ export default function Quiz() {
                 </div>
             )
         }
-    )
+    );
 
     const bottom = isFinished
         ?

@@ -1,0 +1,43 @@
+input[type="radio"] {
+    display: none;
+}
+
+.label {
+    color: #293264;
+    border: 0.794239px solid;
+}
+
+.default {
+    background: transparent;
+    border-color: #4D5B9E;
+}
+
+input[type="radio"]:checked+.default {
+    background: #D6DBF5;
+    color: #293264;
+    border-color: #D6DBF5;
+}
+
+.label:hover {
+    background: #D6DBF5;
+    color: #293264;
+    border-color: #D6DBF5;
+}
+
+.green {
+    background: #94D7A2;
+    border-color: #94D7A2;
+}
+
+.red {
+    background: #F8BCBC;
+    opacity: 0.5;
+    border-color: #F8BCBC;
+}
+
+.transparent {
+    background: transparent;
+    color: #293264;
+    border-color: #4D5B9E;
+    opacity: 0.5;
+}

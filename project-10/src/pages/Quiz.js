@@ -2,9 +2,9 @@ import "../assets/Quiz.css"
 import {useEffect, useState} from "react";
 import Button from "../components/Button";
 import RadioButton from "../components/RadioButton";
-import getTasks from "../utils/getTasks";
 import getIntersection from "../utils/getIntersection";
 import getQuestionId from "../utils/getQuestionIdByAnswerId";
+import fetchAndSetTasks from "../utils/fetchAndSetTasks";
 
 export default function Quiz() {
 
@@ -14,8 +14,8 @@ export default function Quiz() {
     const [chosenAnswersIds, setChosenAnswersIds] = useState([]);
 
     useEffect(() => {
-        setTasks(getTasks());
-    }, []);
+        fetchAndSetTasks(setTasks);
+    }, [])
 
     useEffect(() => {
 
@@ -36,7 +36,8 @@ export default function Quiz() {
 
         // when user clicks "play again"
         else {
-            setTasks(getTasks());
+
+            fetchAndSetTasks(setTasks);
             setScore(0);
             setChosenAnswersIds([]);
         }

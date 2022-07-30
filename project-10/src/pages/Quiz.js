@@ -15,10 +15,8 @@ export default function Quiz() {
     const [chosenAnswersIds, setChosenAnswersIds] = useState([]);
 
     useEffect(() => {
-        fetchAndSetTasks(setTasks);
-    }, [])
 
-    useEffect(() => {
+        console.log("isFinished changed");
 
         // when user clicks "check answers"
         if (isFinished) {
@@ -37,7 +35,6 @@ export default function Quiz() {
 
         // when user clicks "play again"
         else {
-
             fetchAndSetTasks(setTasks);
             setScore(0);
             setChosenAnswersIds([]);

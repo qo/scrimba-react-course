@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/scrimba-react-course/static/css/main.dc62bcb5.css",
+    "main.js": "/scrimba-react-course/static/js/main.69c2d82f.js",
+    "index.html": "/scrimba-react-course/index.html",
+    "main.dc62bcb5.css.map": "/scrimba-react-course/static/css/main.dc62bcb5.css.map",
+    "main.69c2d82f.js.map": "/scrimba-react-course/static/js/main.69c2d82f.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.dc62bcb5.css",
+    "static/js/main.69c2d82f.js"
+  ]
+}

@@ -5,9 +5,18 @@ import Quiz from "./pages/Quiz";
 
 export default function App() {
 
+    // App state (either "intro" or "quiz")
     const [mode, setMode] = useState("intro");
 
-    const app = mode === "intro" ? < Intro setMode={setMode} /> : <Quiz />;
+    // Pass setMode to Intro, so mode can be changed
+    // via "Start Quiz" button
+    const app = (
+        mode === "intro"
+        ?
+        <Intro setMode={setMode} />
+        :
+        <Quiz />
+    );
 
     return (
         <div className="App">

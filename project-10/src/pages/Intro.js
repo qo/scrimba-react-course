@@ -8,7 +8,7 @@ export default function Intro(props) {
                 Quizzical
             </div>
             <div className="description">
-                Some description if needed
+                Take a random Quiz!
             </div>
             <Button
                 className="button large"

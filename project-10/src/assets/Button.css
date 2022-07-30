@@ -1,7 +1,7 @@
 .button {
     background: #4D5B9E;
     color: #F5F7FB;
-    border-radius: 10%/40%;
+    border-radius: 10%/20%;
     cursor: pointer;
     display: flex;
     align-items: center;
@@ -24,7 +24,7 @@
 }
 
 .small {
-    width: 65.92px;
-    height: 20.65px;
+    min-width: 65.92px;
+    min-height: 20.65px;
     font-size: 10.24px;
 }

@@ -16,7 +16,7 @@ export default function RadioButton(props) {
                 className={`button small label ${props.style}`}
                 htmlFor={props.id}
             >
-                {props.text}
+                <p className="text">{props.text}</p>
             </label>
         </li>
     )

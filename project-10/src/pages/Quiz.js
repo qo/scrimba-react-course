@@ -5,6 +5,7 @@ import RadioButton from "../components/RadioButton";
 import getIntersection from "../utils/getIntersection";
 import getQuestionId from "../utils/getQuestionIdByAnswerId";
 import fetchAndSetTasks from "../utils/fetchAndSetTasks";
+import { decode } from "html-entities"
 
 export default function Quiz() {
 
@@ -86,7 +87,7 @@ export default function Quiz() {
 
                     return (
                         <RadioButton
-                            text={answer.content}
+                            text={decode(answer.content)}
                             radioGroupName={task.question.id}
                             id={answer.id}
                             checked={isChosen}
@@ -101,7 +102,7 @@ export default function Quiz() {
             return (
                 <div>
                     <div className="question">
-                        { task.question.content }
+                        { decode(task.question.content) }
                     </div>
                     <ul className="answers">
                         { answerElements }
